@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  express:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: express:latest
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo:5
+    ports:
+      - 27017:27017
+
+volumes:
+    monogo_data:
